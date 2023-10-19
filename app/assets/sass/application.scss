@@ -4,3 +4,89 @@
 // 
 
 // Add extra styles here
+@import './ol.css';
+
+/* container plus children: map and crosshairs */
+#container {
+  width: 100%;
+  height: 720px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+#map {
+  width: 100%;
+  height: 720px;
+  margin: auto;
+}
+
+.circle {
+  /* Center vertically */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.down-stroke,
+.up-stroke {
+  content: '';
+  position: absolute;
+  top: 27px; /* half width circle less 1px for width of bar*/
+  width: 42px;
+  height: 2px;
+  background-color: #000;
+  border-radius: 0;
+  -webkit-transition: 0ms ease-out;
+  -moz-transition: 0ms ease-out;
+  -o-transition: 0ms ease-out;
+  transition: 0ms ease-out;
+  z-index: 0;
+}
+.down-stroke {
+  left: 7px;
+}
+.up-stroke {
+  left: 7px;
+} 
+ .circle:hover {
+  border: 4px solid #000;
+  padding-bottom: 1px;
+} 
+.circle .down-stroke {
+  -ms-transform: rotate(225deg);
+  -webkit-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+.circle .up-stroke {
+  -ms-transform: rotate(-225deg);
+  -webkit-transform: rotate(-225deg);
+  -moz-transform: rotate(-225deg);
+  transform: rotate(-225deg);
+}
+
+
+
+.fullscreen:-webkit-full-screen {
+  height: 100%;
+  margin: 0;
+}
+
+.fullscreen:fullscreen {
+  height: 100%;
+}
+
+.fullscreen {
+  margin-bottom: 10px;
+  width: 100%;
+  height: 400px;
+}

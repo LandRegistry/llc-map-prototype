@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <h1 class="govuk-heading-m">
+      Open layers map
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div id="container" >
+      <div id="map" tabindex="0"></div>
+      <div class="circle">
+        <div class="down-stroke"></div>
+        <div class="up-stroke"></div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="govuk-grid-column-one-quarter">
+    <button id="select-area" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Select centre
+    </button>
+    <br />
+    <button id="pan-up" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Pan up
+    </button>
+    <button id="pan-left" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Pan left
+    </button>
+
+    <button id="pan-right" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Pan right
+    </button>
+    <button id="pan-down" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Pan down
+    </button>
+
+    <br />
+    <button id="zoom-out" class="govuk-button govuk-button--secondary" data-module="govuk-button">Zoom out</button>
+    <button id="zoom-in" class="govuk-button govuk-button--secondary" data-module="govuk-button">Zoom in</button>
+
+
+    <br />
+    <button id="clear-all" class="govuk-button govuk-button--secondary" data-module="govuk-button">Clear all</button>
+
+
+    <div class="govuk-form-group">
+        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="marker" name="marker" type="checkbox" value="hmrc">
+            <label class="govuk-label govuk-checkboxes__label" for="marker">
+              Use marker
+            </label>
+          </div>
+        </div>
+    </div>
+
+
+  </div>
+</div>
+
+<script type="module" src="public/javascripts/openlayers.js"></script>
+{% endblock %}
