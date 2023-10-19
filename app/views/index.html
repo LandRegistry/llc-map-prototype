@@ -283,10 +283,10 @@
 <script src="/public/ol/js/map_config.js"></script>
 <script>
   var termsLink = "https://www.ordnancesurvey.co.uk/about/governance/policies/hm-land-registry-local-land-searches-service.html";
-  var mastermap_api_key = "{{ data.API_KEY| safe }}";
+  var mastermap_api_key = "{{ data.API_KEY }}";
   var map_base_layer_view_name = "m0100";
-  var wfs_server_url = "{{ data.WFS_URL | safe }}";
-  var wmts_server_url = "{{ data.WMTS_URL | safe }}";
+  var wfs_server_url = "{{ data.WFS_URL }}";
+  var wmts_server_url = "{{ data.WMTS_URL }}";
 
   MAP_CONFIG.setBaseLayer(MAP_CONFIG.base_layer_zindex, MAP_CONFIG.mastermapResolutions, MAP_CONFIG.projection, termsLink, false);
 </script>
@@ -296,7 +296,7 @@
 
 <!-- <script>
   var geoserver_url = "";
-  configureGeoserverLayerForUser(geoserver_url, '{{ data.GEOSERVER_KEY | safe }}');
+  configureGeoserverLayerForUser(geoserver_url, '{{ data.GEOSERVER_KEY }}');
 </script> -->
 
 <!-- OpenLayers with Mapbox Map -->
