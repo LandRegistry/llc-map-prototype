@@ -76,39 +76,6 @@
     color: #0b0c0c;
     font-family: "GDS Transport", arial, sans-serif;
   }
-
-  .circle {
-  position: absolute;
-  top: 369px;
-  left: 37.5%; /* half of the 75% column width */
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  border: 2px solid #000;
-  pointer-events: none;
-/*   cursor: pointer; */
-  z-index: 2;
-}
-.horizontal,
-.vertical {
-  content: '';
-  position: absolute;
-  width: 70px;
-  height: 1px;
-  background-color: #000;
-  border-radius: 0;
-  top: 28px;
-  z-index: 0;
-}
-.horizontal {
-  left: -6px;
-}
-.vertical {
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-  left: -7px;
-}
 </style>
 {% endblock %}
 
@@ -121,10 +88,7 @@
       <button id="fullscreen" class=" ol-fullscreen" type="button" title="Full screen" ></button>
     </div>
     <div id="map" class="maintain-llc-map" tabindex="1">
-      <div class="circle">
-        <div class="horizontal"></div>
-        <div class="vertical"></div>
-      </div>
+
       <noscript>
         <div id="nojs" class="nojs-content">
             <div id="nojs-message" class="notification-summary">
@@ -237,14 +201,9 @@
           <button id="clearAllBtn" class="govuk-button govuk-button--secondary" data-module="govuk-button">
             Clear all
           </button>
-          <br />
-          <button id="select-area" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-            Select centre
-          </button>
         </div>
       </div>
     </div>
-
 
     <button class="govuk-button " data-module="govuk-button">
       Confirm area
@@ -548,38 +507,9 @@
     MAP_CONTROLS.toggle_draw_layer_style(MAP_CONTROLS.current_style);
   });
 
-  document.getElementById('select-area').onclick = function (evt) {
-    // get centre of map
-    getCenterCoords();
-    let center = map.getView().getCenter(map.getSize());
-    //center = [415824.12, 464753.55];
-    // get polygon at those coords
-    //MAP_CONTROLS.vectorControls.copy_enabled = true;
-    MASTER_MAP_VECTOR_LAYER.enable();
-    var source = MASTER_MAP_VECTOR_LAYER.layer.getSource();
-    var features = source.getFeatures();
-    
-    console.log(MASTER_MAP_VECTOR_LAYER.layer);
-    console.log(source);
-    console.log("=============");
-    console.log(features);
-    console.log("=============");
-    console.log(MAP_CONFIG.draw_source.getFeatures());
-    console.log("=============");
-    console.log(source.getFeaturesAtCoordinate(center));
-    console.log(MASTER_MAP_VECTOR_LAYER.layer.getSource().getFeaturesAtCoordinate(center)[0]);
-    var feature = source.getFeaturesAtCoordinate(center)[0];
-    console.log(feature);
-
-    if (feature) {
-      geometry = feature.getGeometry();
-      MAP_CONTROLS.addGeometryToMap(geometry)
-    }
-    MASTER_MAP_VECTOR_LAYER.disable();
-  };
 
   function getCenterCoords() {
-    //console.log(map);
+    console.log(map);
     center = map.getView().getCenter(map.getSize());
     console.log(center);
   }
