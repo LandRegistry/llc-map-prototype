@@ -33,7 +33,7 @@
     width: 40px;
     margin-top: 5px;
     border: none;
-    z-index:10;
+    z-index: 10;
     outline: none;
     background: no-repeat center url("../public/ol/images/fullscreen.svg");
     background-color: #fff;
@@ -42,10 +42,10 @@
   }
 
   .ol-fullscreen:hover {
-  background-color: #b1b4b6;
-  outline: none;
-  background-clip: padding-box;
-}
+    background-color: #b1b4b6;
+    outline: none;
+    background-clip: padding-box;
+  }
 
   .ol-zoom-in,
   .ol-zoom-out {
@@ -61,54 +61,60 @@
     overflow: hidden;
     text-indent: -5000px;
   }
+
   /* hide the controls as the JS checks for their state */
   #draw-controls {
     visibility: hidden;
   }
-  .map-key-image{
+
+  .map-key-image {
     position: relative;
-    top:3px;
+    top: 3px;
   }
-  .govuk-heading-s{
+
+  .govuk-heading-s {
     margin-bottom: 10px;
   }
-  .ol-scale-line-inner{
+
+  .ol-scale-line-inner {
     color: #0b0c0c;
     font-family: "GDS Transport", arial, sans-serif;
   }
 
   .circle {
-  position: absolute;
-  top: 369px;
-  left: 37.5%; /* half of the 75% column width */
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  border: 2px solid #000;
-  pointer-events: none;
-/*   cursor: pointer; */
-  z-index: 2;
-}
-.horizontal,
-.vertical {
-  content: '';
-  position: absolute;
-  width: 70px;
-  height: 1px;
-  background-color: #000;
-  border-radius: 0;
-  top: 28px;
-  z-index: 0;
-}
-.horizontal {
-  left: -6px;
-}
-.vertical {
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-  left: -7px;
-}
+    position: absolute;
+    top: 359px;
+    left: 37.5%; /* half of the 75% column width */
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .horizontal,
+  .vertical {
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 1px;
+    background-color: #000;
+    border-radius: 0;
+    top: 28px;
+    z-index: 0;
+  }
+
+  .horizontal {
+    left: -6px;
+  }
+
+  .vertical {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    left: -7px;
+  }
 </style>
 {% endblock %}
 
@@ -118,7 +124,7 @@
 
   <div class="govuk-grid-column-three-quarters">
     <div style="position: relative; width: 0; height: 0">
-      <button id="fullscreen" class=" ol-fullscreen" type="button" title="Full screen" ></button>
+      <button id="fullscreen" class=" ol-fullscreen" type="button" title="Full screen"></button>
     </div>
     <div id="map" class="maintain-llc-map" tabindex="1">
       <div class="circle">
@@ -127,21 +133,23 @@
       </div>
       <noscript>
         <div id="nojs" class="nojs-content">
-            <div id="nojs-message" class="notification-summary">
-                <p>
-                    You need to turn on JavaScript to use this service. Or, for assistance, please use the following link -
-                    <a id="“assistance-link”" href="https://customerhelp.landregistry.gov.uk/local-land-charges">https://customerhelp.landregistry.gov.uk/local-land-charges</a>
-                </p>
-            </div>
+          <div id="nojs-message" class="notification-summary">
+            <p>
+              You need to turn on JavaScript to use this service. Or, for assistance, please use the following link -
+              <a id="“assistance-link”"
+                href="https://customerhelp.landregistry.gov.uk/local-land-charges">https://customerhelp.landregistry.gov.uk/local-land-charges</a>
+            </p>
+          </div>
         </div>
-    </noscript>
+      </noscript>
     </div>
 
     <div class=" govuk-!-padding-top-3 govuk-!-padding-right-6">
       <div class="">
-        <p><a class="govuk-link govuk-body-m" href="help" target="_blank">Learn more about how to use this map (opens in a new tab)</a></p>
+        <p><a class="govuk-link govuk-body-m" href="help" target="_blank">Learn more about how to use this map (opens in
+            a new tab)</a></p>
       </div>
-      
+
       <p class="govuk-body govuk-body govuk-!-font-size-14 govuk-!-padding-top-3">
         Use of address and mapping data (including the link between the address and its location) is subject to
         <a href="https://www.ordnancesurvey.co.uk/about/governance/policies/hm-land-registry-local-land-searches-service.html"
@@ -216,7 +224,7 @@
             </label>
           </div>
           <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="hatching" name="hatching" type="checkbox" value="hatched" >
+            <input class="govuk-checkboxes__input" id="hatching" name="hatching" type="checkbox" value="hatched">
             <label class="govuk-label govuk-checkboxes__label" for="hatching">
               Show shading
             </label>
@@ -253,7 +261,7 @@
 
     <div class="">
       <div class="govuk-heading-s ">
-          Map key
+        Map key
       </div>
       <div class="">
         <img class="map-key-image" src="/public/ol/images/information_available.png" alt="Location available key"
@@ -261,8 +269,8 @@
         <span class="map-key-text govuk-body-s">Location available</span>
       </div>
       <div class="">
-        <img class="map-key-image" src="/public/ol/images/information_not_available.png" alt="Location not available key"
-          height="19" width="19">
+        <img class="map-key-image" src="/public/ol/images/information_not_available.png"
+          alt="Location not available key" height="19" width="19">
         <span class="map-key-text govuk-body-s">Location not available</span>
       </div>
     </div>
@@ -367,21 +375,21 @@
 
 <script type="text/javascript">
   var center = [];
-   
-  function checkZoom(){
+
+  function checkZoom() {
     const view = map.getView();
     const zoom = view.getZoom();
 
-    if (zoom < 12){
+    if (zoom < 12) {
       $("#select").prop('disabled', 'true');
       // if select was checked, uncheck it and set as draw
-      if($("#select").prop('checked') == true){
+      if ($("#select").prop('checked') == true) {
         console.log('change up');
         $("#draw").prop('checked', 'true');
       }
 
       $("#snap_to_map").prop('disabled', 'true');
-    }else{
+    } else {
       $("#select").removeAttr("disabled");
       $("#snap_to_map").removeAttr("disabled");
     }
@@ -389,17 +397,17 @@
 
 
   map.on('moveend', checkZoom);
-/* 
-  document.getElementsByClassName('ol-zoom-out').onclick = function () {
-    checkZoom();
-    //view.setZoom(zoom - 1);
-  };
-  
-  document.getElementsByClassName('ol-zoom-in').onclick = function () {
-    checkZoom();
-  //view.setZoom(zoom + 1);
-  };
-   */
+  /* 
+    document.getElementsByClassName('ol-zoom-out').onclick = function () {
+      checkZoom();
+      //view.setZoom(zoom - 1);
+    };
+    
+    document.getElementsByClassName('ol-zoom-in').onclick = function () {
+      checkZoom();
+    //view.setZoom(zoom + 1);
+    };
+     */
   document.getElementById('fullscreen').onclick = function () {
     console.log('click');
     window.open("fullscreen", "_self");
@@ -558,7 +566,7 @@
     MASTER_MAP_VECTOR_LAYER.enable();
     var source = MASTER_MAP_VECTOR_LAYER.layer.getSource();
     var features = source.getFeatures();
-    
+
     console.log(MASTER_MAP_VECTOR_LAYER.layer);
     console.log(source);
     console.log("=============");
