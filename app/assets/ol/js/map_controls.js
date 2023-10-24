@@ -179,7 +179,7 @@ MAP_CONTROLS.remove_all_button = function() {
         $('.active-control').removeClass('active-control');
 
         MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.NONE)
-        console.log(MAP_CONFIG);
+        //console.log(MAP_CONFIG);
         MAP_CONFIG.draw_source.clear();
     })
 };
@@ -322,18 +322,18 @@ MAP_CONTROLS.add_draw_interaction = function(type, button) {
 
 // Toggle Feature Styles on draw layer for current style
 MAP_CONTROLS.toggle_draw_layer_style = function(style) {
-  console.log("current_style" , style);
+  //("current_style" , style);
     // style is one of 4: DRAW, EDIT, REMOVE and NONE
     MAP_CONTROLS.current_style = style;
 
     //also check the show shading box
     let showHatching  = $('#hatching').is(':checked');
-    console.log("HATCH CHECK " + showHatching);
+    //console.log("HATCH CHECK " + showHatching);
     let pattern = draw_layer_styles.style[style];
     if (showHatching) {
       pattern = draw_layer_styles.style[style+10]
     } 
-console.log(style, pattern);
+    //console.log(style, pattern);
 
     MAP_CONFIG.draw_layer.setStyle(pattern);
 

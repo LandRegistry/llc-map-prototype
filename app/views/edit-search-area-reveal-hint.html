@@ -364,7 +364,6 @@
       $("#select").prop('disabled', 'true');
       // if select was checked, uncheck it and set as draw
       if($("#select").prop('checked') == true){
-        console.log('change up');
         $("#draw").prop('checked', 'true');
       }
 
@@ -389,21 +388,17 @@
   };
    */
   document.getElementById('fullscreen').onclick = function () {
-    console.log('click');
     window.open("fullscreen", "_self");
   };
 
   document.getElementById('clearAllBtn').onclick = function () {
-    console.log('click');
     map.removeInteraction(MAP_CONTROLS.current_interaction);
 
     MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.NONE)
-    console.log(MAP_CONFIG);
     MAP_CONFIG.draw_source.clear();
   };
 
   document.getElementById('undoBtn').onclick = function () {
-    console.log('undo');
     MAP_UNDO.undo();
   };
 
@@ -510,10 +505,8 @@
 
   // Not sure about this - maybe vector snap also depends on zoom level?
   $('#snap_to_map').change(function () {
-    console.log(MAP_CONTROLS.vectorControls.snap_to_enabled);
     MAP_CONTROLS.vectorControls.snap_to_enabled = $(this).is(':checked');
-    console.log(MAP_CONTROLS.vectorControls.snap_to_enabled);
-    console.log("HATCH " + MAP_CONTROLS.vectorControls.snap_to_enabled);
+
     if (MAP_CONTROLS.vectorControls.snap_to_enabled) {
       // Enable the snap to interaction and vector layer
       SNAP_TO_VECTOR_LAYER.enable()
@@ -532,15 +525,12 @@
 
   $('#hatching').change(function () {
     showHatching = $(this).is(':checked');
-    console.log("HATCH " + showHatching, MAP_CONTROLS.current_style);
     MAP_CONTROLS.toggle_draw_layer_style(MAP_CONTROLS.current_style);
   });
 
 
   function getCenterCoords() {
-    console.log(map);
     center = map.getView().getCenter(map.getSize());
-    console.log(center);
   }
 
 </script>
