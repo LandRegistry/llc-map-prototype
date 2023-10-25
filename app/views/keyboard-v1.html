@@ -80,16 +80,14 @@
     color: #0b0c0c;
     font-family: "GDS Transport", arial, sans-serif;
   }
-
+  
+  :root {
+    --width: 300px;
+  }
   .center {
     position: absolute;
     top: 330px;
-    left: calc(37.5% - 28px); /* half of the 75% column width */
-    width: 56px;
-    height: 56px;
-    /* no circle in this version */
-    /* border-radius: 50%;
-    border: 2px solid #000; */
+    left: calc(37.5% - var(--width)/2 ); /* half of the 75% column width, less half the width of the line */
     pointer-events: none;
     z-index: 2;
   }
@@ -98,23 +96,18 @@
   .vertical {
     content: '';
     position: absolute;
-    width: 70px;
+    width: var(--width);
     height: 1px;
-    background-color: #000;
+    background-color: #00000066;
     border-radius: 0;
     top: 28px;
     z-index: 0;
-  }
-
-  .horizontal {
-    left: -6px;
   }
 
   .vertical {
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     transform: rotate(-90deg);
-    left: -7px;
   }
 
   .nav-controls {
