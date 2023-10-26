@@ -42,7 +42,7 @@ draw_layer_styles = {
         color: add_colour,
         /* color: '#85994b', */
         width: 2,
-        lineDash: [5, 5]
+        /* lineDash: [5, 5] */
       }),
       image: new ol.style.Circle({
         radius: 5,
@@ -59,7 +59,7 @@ draw_layer_styles = {
       stroke: new ol.style.Stroke({
         color: edit_colour,
         width: 2,
-        lineDash: [5, 5]
+        /* lineDash: [5, 5] */
       }),
       image: new ol.style.Circle({
         radius: 5,
@@ -71,7 +71,7 @@ draw_layer_styles = {
     // delete | remove
     2: new ol.style.Style({
       stroke: new ol.style.Stroke({
-        color: [255, 0, 0, 0.8],
+        color: delete_colour,//[255, 0, 0, 0.8],
         width: 2
       }),
       fill: new ol.style.Fill({
@@ -93,7 +93,7 @@ draw_layer_styles = {
       stroke: new ol.style.Stroke({
         color: '#0658e5',
         width: 2,
-        lineDash: [5, 5]
+       /*  lineDash: [5, 5] */
       }),
       image: new ol.style.Circle({
         radius: 5,
@@ -147,7 +147,8 @@ draw_layer_styles = {
     12: new ol.style.Style({
       stroke: new ol.style.Stroke({
         color: [255, 0, 0, 0.4],
-        width: 3
+        width: 3,
+        lineDash: [5, 5]
       }),
       fill: fill_delete,
       image: new ol.style.Circle({
