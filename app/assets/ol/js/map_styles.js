@@ -52,7 +52,7 @@ draw_layer_styles = {
       })
     }),
     // EDIT
-    1: new ol.style.Style({
+    1: [new ol.style.Style({
       fill: new ol.style.Fill({
         color: edit_fill
       }),
@@ -68,6 +68,20 @@ draw_layer_styles = {
         })
       })
     }),
+    new ol.style.Style({ // second style for the dots on the edge
+      image: new ol.style.Circle({
+        radius: 5,
+        fill: new ol.style.Fill({
+          color: edit_colour
+        })
+      }),
+      geometry: function(feature) { // creating a custom geometry to draw points on
+          var coordinates = feature.getGeometry().getCoordinates()[0];
+          if (Array.isArray(coordinates)) {
+            return new ol.geom.MultiPoint(coordinates);
+          }
+        }
+  })],
     // delete | remove
     2: new ol.style.Style({
       stroke: new ol.style.Stroke({
@@ -129,7 +143,7 @@ draw_layer_styles = {
       })
     }),
     // EDIT (with HATCHING)
-    11: new ol.style.Style({
+    11: [new ol.style.Style({
       fill: fill_edit,
       stroke: new ol.style.Stroke({
         color: edit_colour,
@@ -143,6 +157,20 @@ draw_layer_styles = {
         })
       })
     }),
+    new ol.style.Style({ // second style for the dots on the edge
+        image: new ol.style.Circle({
+          radius: 5,
+          fill: new ol.style.Fill({
+            color: edit_colour
+          })
+        }),
+        geometry: function(feature) { // creating a custom geometry to draw points on
+            var coordinates = feature.getGeometry().getCoordinates()[0];
+            if (Array.isArray(coordinates)) {
+              return new ol.geom.MultiPoint(coordinates);
+            }
+          }
+    })],
     // DELETE | remove  (with HATCHING)
     12: new ol.style.Style({
       stroke: new ol.style.Stroke({
