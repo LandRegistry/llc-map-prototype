@@ -31,7 +31,7 @@ function load_previous_data(information) {
                 map.getView().animate({
                     center: features[0].getGeometry().getCoordinates(),
                     zoom: 100,
-                    duration: 1000
+                    duration: 1
                 });
             } else {
                 var extent = features[0].getGeometry().getExtent().slice(0);
@@ -41,6 +41,12 @@ function load_previous_data(information) {
                 });
 
                 map.getView().fit(extent);
+
+                // get the map zoom with the new extents
+                const view = map.getView();
+                const zoom = view.getZoom();
+                // then zoom out slightly to show the context / surrounding area
+                view.setZoom(zoom - 0.3)
             }
         } catch (e) {
         }
