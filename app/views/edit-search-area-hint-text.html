@@ -1,6 +1,10 @@
 {% extends "layouts/main.html" %}
 
 {% set pageName="Home" %}
+{% set selectHint = "Copy features from the map to create an area." %}
+{% set drawHint = "Add points on the map to draw a custom shape." %}
+{% set editHint = "Drag the edges on an existing area to change it." %}
+{% set deleteHint = "Remove individual areas from the map." %}
 
 {% block beforeContent %}
 {% include "includes/phase-banner.html" %}
@@ -133,7 +137,7 @@
               </span>
             </label>
             <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
-              Add points to the map to create an area
+              {{ selectHint }}
             </div>
           </div>
 
@@ -147,7 +151,7 @@
               </span>
             </label>
             <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
-              Use points on the map to create an area
+              {{ drawHint }}
             </div>
           </div>
           <div class="govuk-radios__item">
@@ -160,7 +164,7 @@
               </span>
             </label>
             <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
-              Drag the edges on an existing area to change it
+              {{ editHint }}
             </div>
           </div>
           <div class="govuk-radios__item">
@@ -173,7 +177,7 @@
               </span>
             </label>
             <div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
-              Remove individual areas from the map
+              {{ deleteHint }}
             </div>
           </div>
         </div>
