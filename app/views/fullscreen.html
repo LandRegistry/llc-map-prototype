@@ -31,34 +31,6 @@
     background-color: #f2f2f2;
   }
 
-  .defra-map__exit,
-  .defra-map__back {
-    float: left;
-    margin: 10px 0px 0px 10px;
-    border: 0;
-    padding: 0;
-    padding-right: 0px;
-    padding-left: 0px;
-    height: 40px;
-    width: 40px;
-    cursor: pointer;
-    background-color: #fff;
-    color: #0b0c0c;
-    font-size: 16px;
-    line-height: 40px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4.828,11L12.314,18.485L10.899,19.899L1,10L10.899,0.101L12.314,1.515L4.828,9L19,9L19,11L4.828,11Z' style='fill:%230b0c0c;stroke:%230b0c0c;stroke-width:0.1px'/%3E%3C/svg%3E");
-    background-size: 20px;
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    text-indent: -5000px;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    pointer-events: auto;
-  }
-
   .ol-zoom-in {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Crect width='14' height='2' x='8' y='14' style='fill:%230b0c0c'/%3E%3Crect width='2' height='14' x='14' y='8' style='fill:%230b0c0c'/%3E%3C/svg%3E");
   }
@@ -113,6 +85,72 @@
     color: #0b0c0c;
     font-family: "GDS Transport", arial, sans-serif;
   }
+
+.exit-controls {
+    right: 290px;
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  pointer-events: none;
+}
+
+.defra-map__back {
+  float: left;
+  margin: 10px 0px 0px 10px;
+  border: 0;
+  padding: 0;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  background-color: #fff;
+  color: #0b0c0c;
+  font-size: 16px;
+  line-height: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4.828,11L12.314,18.485L10.899,19.899L1,10L10.899,0.101L12.314,1.515L4.828,9L19,9L19,11L4.828,11Z' style='fill:%230b0c0c;stroke:%230b0c0c;stroke-width:0.1px'/%3E%3C/svg%3E");
+  background-size: 20px;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  text-indent: -5000px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: auto
+}
+
+@media(min-width: 52.1875em) {
+  .defra-map__back {
+    text-indent: 0px;
+    width: auto;
+    padding-left: 38px;
+    padding-right: 11px
+  }
+}
+
+.defra-map__back:hover {
+  background-color: #b1b4b6
+}
+
+.defra-map__back:focus, .defra-facets-details__summary:focus .defra-map__back.defra-facets-details__summary-text {
+  outline: none
+}
+
+ .defra-map__back:focus[keyboard-focus], .defra-map__back[keyboard-focus].defra-facets-details__summary-text {
+  background-color: #fd0;
+  color: #0b0c0c;
+  outline: none
+}
+
+.defra-map__back::-moz-focus-inner {
+  border: 0
+}
+
+
 </style>
 {% endblock %}
 
@@ -120,8 +158,10 @@
 
 
     <div id="map" class="maintain-llc-map" tabindex="1"></div>
-    <button class="defra-map__back">Exit map</button>
-
+    
+    <div class="exit-controls" aria-hidden="false">
+      <button id="exitFullscreenBtn" class="defra-map__back">Exit map</button>
+    </div>
 
   <div id="navbar" class="govuk-grid-column-one-quarter">
 
@@ -358,6 +398,11 @@
   view.setZoom(zoom + 1);
   };
   */
+
+  document.getElementById('exitFullscreenBtn').onclick = function () {
+    window.location.href = "edit-search-area.html";
+  };
+
   document.getElementById('clearAllBtn').onclick = function () {
     map.removeInteraction(MAP_CONTROLS.current_interaction);
 
