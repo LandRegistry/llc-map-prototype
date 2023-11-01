@@ -152,55 +152,6 @@
     background-clip: padding-box;
   }
 
-  #pan-up {
-    position: absolute;
-    left: 40px;
-  }
-
-  #pan-left {
-    position: absolute;
-    top: 40px;
-    left: 0px;
-  }
-
-  #pan-right {
-    position: absolute;
-    top: 40px;
-    left: 80px;
-  }
-
-  #pan-down {
-    position: absolute;
-    top: 80px;
-    left: 40px;
-  }
-
-  .arrow {
-    border: solid black;
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 5px;
-  }
-
-  .right {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-  }
-
-  .left {
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
-  }
-
-  .up {
-    transform: rotate(-135deg);
-    -webkit-transform: rotate(-135deg);
-  }
-
-  .down {
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-  }
 </style>
 {% endblock %}
 
@@ -211,21 +162,7 @@
   <div class="govuk-grid-column-three-quarters">
     <div style="position: relative; width: 0; height: 0">
       <button id="fullscreen" class=" ol-fullscreen" type="button" title="Full screen"></button>
-      <br />
-      <div class="nav-controls ">
-        <button id="pan-up" class="nav-button" data-module="govuk-button">
-          <i class="arrow up"></i><span class="govuk-visually-hidden">Pan up</span>
-        </button>
-        <button id="pan-left" class="nav-button" data-module="govuk-button">
-          <i class="arrow left"></i><span class="govuk-visually-hidden">Pan left</span>
-        </button>
-        <button id="pan-right" class="nav-button" data-module="govuk-button">
-          <i class="arrow right"></i><span class="govuk-visually-hidden">Pan right</span>
-        </button>
-        <button id="pan-down" class="nav-button" data-module="govuk-button">
-          <i class="arrow down"></i><span class="govuk-visually-hidden">Pan down</span>
-        </button>
-      </div>
+
     </div>
     <div id="map" class="maintain-llc-map" tabindex="1">
       <div class="center">
@@ -732,17 +669,34 @@ $( document ).ready(function() {
     map.getView().setCenter([center[0] + xDirection * resolution, center[1] + yDirection * resolution]);
   }
 
-  document.getElementById('pan-up').onclick = function () {
-    moveMap([0, step]);
-  };
-  document.getElementById('pan-left').onclick = function () {
-    moveMap([-step, 0]);
-  };
-  document.getElementById('pan-right').onclick = function () {
-    moveMap([step, 0]);
-  };
-  document.getElementById('pan-down').onclick = function () {
-    moveMap([0, -step]);
-  };
+  $( "#map" ).on( "keypress", function(evt) {
+  console.log( "Handler for `keypress` called." );
+  console.log(evt);
+} );
+
+document.getElementById('map').addEventListener("keydown", (e) => {
+
+    if(e.shiftKey){
+          switch (e.key) {
+      case "ArrowUp":
+      moveMap([0, step]);
+        break;
+      case "ArrowLeft":
+      moveMap([-step, 0]);
+        break;
+      case "ArrowRight":
+      moveMap([step, 0]);
+        break;
+      case "ArrowDown":
+      moveMap([0, -step]);
+        break;
+    
+      default:
+        break;
+    } 
+  }
+
+});
+
 </script>
 {% endblock %}
