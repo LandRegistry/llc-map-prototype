@@ -1,6 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% set pageName="Home" %}
+{% set selectHint = "You need to be zoomed in to use this feature" %}
 
 {% block beforeContent %}
 {% include "includes/phase-banner.html" %}
@@ -133,6 +134,9 @@
               </span>
             </label>
           </div>
+            <div id="select-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16" style="display: none;">
+              {{ selectHint }}
+            </div>
 
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="draw" name="edit-mode" type="radio" value="draw-area"
@@ -320,6 +324,7 @@
 // init select area
 ///////////////////////////////////////////////
 $( document ).ready(function() {
+  $("#select-hint").hide();
   map.removeInteraction(MAP_CONTROLS.current_interaction);
   MASTER_MAP_VECTOR_LAYER.enable()
   MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
@@ -377,11 +382,13 @@ $( document ).ready(function() {
         console.log('change up');
         $("#draw").prop('checked', 'true');
       }
-
+      $("#select-hint").show();
+      
       $("#snap_to_map").prop('disabled', 'true');
     }else{
       $("#select").removeAttr("disabled");
       $("#snap_to_map").removeAttr("disabled");
+      $("#select-hint").hide();
     }
   }
 
