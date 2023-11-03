@@ -1,10 +1,10 @@
 {% extends "layouts/main.html" %}
 
 {% set pageName="Home" %}
-{% set selectHint = "Copy features from the map to create an area." %}
-{% set drawHint = "Add points on the map to draw a custom shape." %}
-{% set editHint = "Drag the edges on an existing area to change it." %}
-{% set deleteHint = "Remove individual areas from the map." %}
+{% set selectHint = "" %}
+{% set drawHint = "Add points to draw your search area" %}
+{% set editHint = "Move points to edit your search area" %}
+{% set deleteHint = "" %}
 
 {% block beforeContent %}
 {% include "includes/phase-banner.html" %}
@@ -116,7 +116,7 @@
         <p><a class="govuk-link govuk-body-m" href="help" target="_blank">Learn more about how to use this map (opens in a new tab)</a></p>
       </div>
       
-      <p class="govuk-body govuk-body govuk-body-s govuk-!-padding-top-3">
+      <p class="govuk-body govuk-body-s govuk-!-padding-top-3">
         Use of address and mapping data (including the link between the address and its location) is subject to
         <a href="https://www.ordnancesurvey.co.uk/about/governance/policies/hm-land-registry-local-land-searches-service.html"
           target="_blank">Ordnance Survey Licence Terms and Conditions</a> (link opens in new tab).
@@ -142,11 +142,11 @@
                 Select area
               </span>
             </label>
-            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="select-hint">
+<!--             <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="select-hint">
               <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
                 {{ selectHint }}
               </div>
-            </div>
+            </div> -->
           </div>
     
           <div class="govuk-radios__item">
