@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% set pageName="Edit search area" %}
-{% set selectHint = "" %}
+{% set selectHint = "Select one or more areas to copy shapes on the map" %}
 {% set drawHint = "Add points to draw your search area" %}
 {% set editHint = "Move points to edit your search area" %}
 {% set deleteHint = "" %}
@@ -86,6 +86,9 @@
     padding-left: 0px;
     border-left: none;
   }
+  .govuk-radios__conditional {
+    margin-bottom: 0;
+  }
 </style>
 {% endblock %}
 
@@ -111,16 +114,30 @@
     </noscript>
     </div>
 
-    <div class=" govuk-!-padding-top-3 govuk-!-padding-right-6">
-      <div class="">
-        <p><a class="govuk-link govuk-body-m" href="help" target="_blank">Learn more about how to use this map (opens in a new tab)</a></p>
+    <div id="" class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        <h2 class="govuk-heading-s">Map key</h2>
       </div>
+      <div class="govuk-grid-column-one-third">
+        <img class="map-key-image" src="/public/ol/images/information_available.png" alt="Location available key"
+          height="19" width="19">
+        <span class="map-key-text govuk-body-s">Location available</span>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <img class="map-key-image" src="/public/ol/images/information_not_available.png"
+          alt="Location not available key" height="19" width="19">
+        <span class="map-key-text govuk-body-s">Location not available</span>
+      </div>
+    </div>
+
+    <div class="govuk-!-padding-right-6">
       
-      <p class="govuk-body govuk-body-s govuk-!-padding-top-3">
+      <p class="govuk-body-s">
         Use of address and mapping data (including the link between the address and its location) is subject to
         <a href="https://www.ordnancesurvey.co.uk/about/governance/policies/hm-land-registry-local-land-searches-service.html"
-          target="_blank">Ordnance Survey Licence Terms and Conditions</a> (link opens in new tab).
+        target="_blank">Ordnance Survey Licence Terms and Conditions</a> (link opens in new tab).
       </p>
+
     </div>
 
 
@@ -142,11 +159,11 @@
                 Select area
               </span>
             </label>
-<!--             <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="select-hint">
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="select-hint">
               <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
                 {{ selectHint }}
               </div>
-            </div> -->
+            </div>
           </div>
     
           <div class="govuk-radios__item">
@@ -242,7 +259,7 @@
       Confirm area
     </button>
 
-
+<!-- 
     <div class="">
       <div class="govuk-heading-s ">
           Map key
@@ -258,7 +275,7 @@
         <span class="map-key-text govuk-body-s">Location not available</span>
       </div>
     </div>
-
+ -->
   </div>
 </div>
 
