@@ -1,0 +1,42 @@
+
+<script>
+  //////////////////////////////////////////////////////////////////////
+  // key pixel panning 
+  ////////////////////////////////////////////////////////////////////// 
+  const step = 10; // pixels
+  function moveMap([xDirection, yDirection]) {
+    var center = map.getView().getCenter();
+    var resolution = map.getView().getResolution();
+    map.getView().setCenter([center[0] + xDirection * resolution, center[1] + yDirection * resolution]);
+  }
+
+  $( "#map" ).on( "keypress", function(evt) {
+  console.log( "Handler for `keypress` called." );
+  console.log(evt);
+} );
+
+document.getElementById('map').addEventListener("keydown", (e) => {
+
+    if(e.shiftKey){
+          switch (e.key) {
+      case "ArrowUp":
+      moveMap([0, step]);
+        break;
+      case "ArrowLeft":
+      moveMap([-step, 0]);
+        break;
+      case "ArrowRight":
+      moveMap([step, 0]);
+        break;
+      case "ArrowDown":
+      moveMap([0, -step]);
+        break;
+    
+      default:
+        break;
+    } 
+  }
+
+});
+
+</script>
