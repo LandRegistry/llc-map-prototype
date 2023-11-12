@@ -3,7 +3,7 @@
   //////////////////////////////////////////////////////////////////////
   // key pixel panning 
   ////////////////////////////////////////////////////////////////////// 
-  const step = 10; // pixels
+  const step_by_key = 10; // pixels
   function moveMap([xDirection, yDirection]) {
     var center = map.getView().getCenter();
     var resolution = map.getView().getResolution();
@@ -20,16 +20,16 @@ document.getElementById('map').addEventListener("keydown", (e) => {
     if(e.shiftKey){
           switch (e.key) {
       case "ArrowUp":
-      moveMap([0, step]);
+      moveMap([0, step_by_key]);
         break;
       case "ArrowLeft":
-      moveMap([-step, 0]);
+      moveMap([-step_by_key, 0]);
         break;
       case "ArrowRight":
-      moveMap([step, 0]);
+      moveMap([step_by_key, 0]);
         break;
       case "ArrowDown":
-      moveMap([0, -step]);
+      moveMap([0, -step_by_key]);
         break;
     
       default:
