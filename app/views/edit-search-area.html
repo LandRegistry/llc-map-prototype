@@ -347,15 +347,22 @@ $( document ).ready(function() {
     MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.NONE)
     console.log(MAP_CONFIG);
     MAP_CONFIG.draw_source.clear();
+
+    setMode()
   };
 
   document.getElementById('undoBtn').onclick = function () {
     console.log('undo');
     MAP_UNDO.undo();
+    setMode()
   };
 
 
   $(document).on("change", "input[type=radio]", function () {
+    setMode();
+  });
+
+  function setMode(){
     var radio = $('[name="edit-mode"]:checked').val();
 
 
@@ -453,7 +460,7 @@ $( document ).ready(function() {
       }
     }
 
-  });
+  };
 
   // Not sure about this - maybe vector snap also depends on zoom level?
   $('#snap_to_map').change(function () {

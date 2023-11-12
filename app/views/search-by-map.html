@@ -171,7 +171,7 @@
         <div class="govuk-radios  govuk-radios--small" data-module="govuk-radios">
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="select" name="edit-mode" type="radio" value="select-area"
-              aria-describedby="sign-in-item-hint" checked>
+              aria-describedby="sign-in-item-hint" >
             <label class="govuk-label govuk-radios__label" for="select">
               <span class="">
                 <span class=""></span>
@@ -182,7 +182,7 @@
 
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="draw" name="edit-mode" type="radio" value="draw-area"
-              aria-describedby="sign-in-item-hint" data-aria-controls="conditional-sign-in">
+              aria-describedby="sign-in-item-hint" data-aria-controls="conditional-sign-in" checked>
             <label class="govuk-label govuk-radios__label" for="draw">
               <span class="">
                 <span class=""></span>
@@ -377,6 +377,8 @@ $( document ).ready(function() {
   MAP_CONTROLS.vectorControls.copy_enabled = true;
   map.addInteraction(MAP_CONTROLS.current_interaction)
 
+  setMode();
+
 });
 
 
@@ -442,17 +444,24 @@ $( document ).ready(function() {
     MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.NONE)
     console.log(MAP_CONFIG);
     MAP_CONFIG.draw_source.clear();
+
+    setMode();
   };
 
   document.getElementById('undoBtn').onclick = function () {
     console.log('undo');
     MAP_UNDO.undo();
+    setMode();
   };
 
 
   $(document).on("change", "input[type=radio]", function () {
-    var radio = $('[name="edit-mode"]:checked').val();
+    setMode();
+  });
 
+  function setMode(){
+    var radio = $('[name="edit-mode"]:checked').val();
+console.log(radio);
 
     if (radio == "draw-area") {
       map.removeInteraction(MAP_CONTROLS.current_interaction);
@@ -548,7 +557,7 @@ $( document ).ready(function() {
       }
     }
 
-  });
+  };
 
   // Not sure about this - maybe vector snap also depends on zoom level?
   $('#snap_to_map').change(function () {
