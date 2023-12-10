@@ -196,6 +196,11 @@
       <div class="">
         <p><a class="govuk-link govuk-body-m" href="help" target="_blank">Learn more about how to use this map (opens in
             a new tab)</a></p>
+            <p>The map also functions with keyboard controls: <br/>
+              Pan using arrow keys, and fine-tune the position with the alt/option key.<br/>
+              Select the area at the centre of the map using the "enter" key or by using "Select centre" button.<br/>
+              Note: Draw and edit mode do not work with keyboard controls.<br/>
+              Focus the map using access key M and focus the select centre button using access key X.</p>
       </div>
 
       <p class="govuk-body govuk-body-s govuk-!-padding-top-3">
@@ -470,9 +475,9 @@ MAP_HELPERS.init_controls(map, controls);
 
     if (radio == "edit-area") {
       map.removeInteraction(MAP_CONTROLS.current_interaction);
-      var toggled_on = MAP_CONTROLS.toggle_button($('#' + MAP_CONTROLS.editButtonId));
+      //var toggled_on = MAP_CONTROLS.toggle_button($('#' + MAP_CONTROLS.editButtonId));
 
-      if (toggled_on) {
+      //if (toggled_on) {
         MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.EDIT);
 
         MAP_CONTROLS.current_interaction = new ol.interaction.Modify({
@@ -490,17 +495,17 @@ MAP_HELPERS.init_controls(map, controls);
           MAP_UNDO.store_state();
         });
 
-      } else {
-        MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.NONE);
-      }
+      //} else {
+      //  MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.NONE);
+      //}
     }
 
 
     if (radio == "delete-area") {
       map.removeInteraction(MAP_CONTROLS.current_interaction);
-      var toggled_on = MAP_CONTROLS.toggle_button($('#' + MAP_CONTROLS.deleteButtonId));
+      //var toggled_on = MAP_CONTROLS.toggle_button($('#' + MAP_CONTROLS.deleteButtonId));
 
-      if (toggled_on) {
+      //if (toggled_on) {
         MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.REMOVE);
 
         MAP_CONTROLS.current_interaction = new ol.interaction.Select({
@@ -515,9 +520,9 @@ MAP_HELPERS.init_controls(map, controls);
         });
 
         map.addInteraction(MAP_CONTROLS.current_interaction)
-      } else {
-        MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.NONE)
-      }
+      //} else {
+      //  MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.NONE)
+      //}
     }
 
   };
