@@ -37,7 +37,7 @@ MAP_UNDO.remove_undo = function() {
 };
 
 MAP_UNDO.enable_undo_button = function(enable) {
-    document.getElementById('map-button-undo').disabled = !enable;
+    document.getElementById('undoBtn').disabled = !enable;
 };
 
 MAP_UNDO.get_geometries = function() {
