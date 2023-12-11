@@ -49,6 +49,7 @@
 <div id="container" class="govuk-grid-row">
 
   <div class="govuk-grid-column-three-quarters">
+
     <div style="position: relative; width: 0; height: 0">
       <button id="fullscreen" class=" ol-fullscreen" type="button" title="Full screen"></button>
       <br />
@@ -193,14 +194,24 @@
 
   <div class="govuk-grid-column-three-quarters">
     <div class=" govuk-!-padding-top-3 govuk-!-padding-right-6">
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Help using the map with a keyboard
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p>The map also functions with keyboard controls: <br/>
+            Pan using arrow keys, and fine-tune the position with the alt/option key.<br/>
+            Select the area at the centre of the map using the "space" bar or by using "Select centre" button.<br/>
+            Note: Draw and edit mode do not work with keyboard controls.<br/>
+            Focus the map using access key M and focus the "Select centre" button using access key X.</p>
+        </div>
+      </details>
       <div class="">
         <p><a class="govuk-link govuk-body-m" href="help" target="_blank">Learn more about how to use this map (opens in
             a new tab)</a></p>
-            <p>The map also functions with keyboard controls: <br/>
-              Pan using arrow keys, and fine-tune the position with the alt/option key.<br/>
-              Select the area at the centre of the map using the "enter" key or by using "Select centre" button.<br/>
-              Note: Draw and edit mode do not work with keyboard controls.<br/>
-              Focus the map using access key M and focus the select centre button using access key X.</p>
+            
       </div>
 
       <p class="govuk-body govuk-body-s govuk-!-padding-top-3">
@@ -256,7 +267,7 @@
   
   <!-- Used to get the undo button -->
   <script>
-    var staticContentUrl = "/public";
+/*     var staticContentUrl = "/public"; */
   </script>
   
   <!-- Custom Map Styles -->
@@ -303,14 +314,14 @@
 // add location
 // Add Map Controls
 var controls = new MAP_CONTROLS.Controls([
-    MAP_CONTROLS.add_area_button(),
+/*     MAP_CONTROLS.add_area_button(),
     MAP_CONTROLS.edit_button(),
     MAP_CONTROLS.copy_button(),
     MAP_CONTROLS.copy_button(),
     MAP_CONTROLS.snap_to(),
     MAP_CONTROLS.remove_button(),
     MAP_CONTROLS.remove_all_button(),
-    MAP_CONTROLS.undo_button()
+    MAP_CONTROLS.undo_button() */
 ]);
 
 MAP_HELPERS.init_controls(map, controls);
@@ -319,10 +330,10 @@ MAP_HELPERS.init_controls(map, controls);
   
   <script>
     //addLocation.init("/static");
-    $(function () {
+/*     $(function () {
       $("#map").attr('height', '960px');
       map.updateSize();
-    });
+    }); */
   </script>
   
   
@@ -527,7 +538,8 @@ MAP_HELPERS.init_controls(map, controls);
 
   };
 
-  // Not sure about this - maybe vector snap also depends on zoom level?
+  // Not sure about this - vector snap also depends on zoom level
+  // this is because we can only load in a set number of polygons to use for the 'snap'
   $('#snap_to_map').change(function () {
     MAP_CONTROLS.vectorControls.snap_to_enabled = $(this).is(':checked');
 
@@ -570,9 +582,8 @@ MAP_HELPERS.init_controls(map, controls);
   function selectCentre(evt){
     console.log('x');
     // get centre of map
-    getCenterCoords();
-    let center = map.getView().getCenter(map.getSize());
-    //center = [415824.12, 464753.55];
+    let center = getCenterCoords();
+
     // get polygon at those coords
     //MAP_CONTROLS.vectorControls.copy_enabled = true;
     MASTER_MAP_VECTOR_LAYER.enable();
@@ -592,8 +603,7 @@ MAP_HELPERS.init_controls(map, controls);
     // to remove a polygon, get the feature that contains the centre coords, get it's id and remove it
     console.log('delete');
     // get centre of map
-    getCenterCoords();
-    let center = map.getView().getCenter(map.getSize());
+    let center = getCenterCoords();
 
     // get polygon of the drawn layer at those coords
     var source = MAP_CONFIG.draw_layer.getSource();
@@ -611,6 +621,7 @@ MAP_HELPERS.init_controls(map, controls);
   function getCenterCoords() {
     center = map.getView().getCenter(map.getSize());
     console.log(center);
+    return center;
   }
   </script>
 <script>
@@ -677,7 +688,7 @@ document.getElementById('map').addEventListener("keydown", (evt) => {
 
   //console.log(evt);
   //console.log(evt.keyCode);
-  if(evt.keyCode == 32 || evt.keyCode==13){ //space or enter
+  if(evt.keyCode == 32 ){ //space or enter || evt.keyCode==13
     event.preventDefault();
     var radio = $('[name="edit-mode"]:checked').val();
 
