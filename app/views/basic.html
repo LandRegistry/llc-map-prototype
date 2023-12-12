@@ -131,7 +131,7 @@
     <div class="govuk-grid-row govuk-!-padding-bottom-6">
       <div class="govuk-grid-column-full govuk-!-padding-top-3">
         <div class="">
-          <button id="undoBtn" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          <button id="undoBtn" class="govuk-button govuk-button--secondary" data-module="govuk-button" disabled>
             Undo
           </button>
           <br />
@@ -253,13 +253,12 @@
   <script src="/public/ol/js/save_geometries.js"></script>
 
 <script>
-// add location
-// Add map controls to get the zoom buttons as part of the ol overlay
-// controls are now GDS components
-var controls = new MAP_CONTROLS.Controls([
-]);
+  // Add map controls to get the zoom buttons as part of the ol overlay
+  // controls are now GDS components
+  var controls = new MAP_CONTROLS.Controls([
+  ]);
 
-MAP_HELPERS.init_controls(map, controls);
+  MAP_HELPERS.init_controls(map, controls);
 </script>
 
 
@@ -305,7 +304,7 @@ MAP_HELPERS.init_controls(map, controls);
   
   });
   
-  </script>
+</script>
 
 <script type="text/javascript">
   var center = [];
@@ -326,6 +325,9 @@ MAP_HELPERS.init_controls(map, controls);
       $("#select").removeAttr("disabled");
       $("#snap_to_map").removeAttr("disabled");
     }
+
+    //reset the controls
+    setMode();
   }
 
 
@@ -347,11 +349,9 @@ MAP_HELPERS.init_controls(map, controls);
 
   document.getElementById('clearAllBtn').onclick = function () {
     map.removeInteraction(MAP_CONTROLS.current_interaction);
-
     MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.NONE)
     MAP_CONFIG.draw_source.clear();
-
-    setMode()
+    setMode();
   };
 
   document.getElementById('undoBtn').onclick = function () {
@@ -478,7 +478,6 @@ MAP_HELPERS.init_controls(map, controls);
   });
 
   document.getElementById('select-centre').onclick = function (evt) {
-    selectCentre(evt)
     var radio = $('[name="edit-mode"]:checked').val();
 
     if (radio == "draw-area" || radio == "select-area") {
@@ -537,7 +536,7 @@ MAP_HELPERS.init_controls(map, controls);
     console.log(center);
     return center;
   }
-  </script>
+</script>
 
 <script>
   //////////////////////////////////////////////////////////////////////
@@ -566,52 +565,51 @@ MAP_HELPERS.init_controls(map, controls);
 
 <script>
   //////////////////////////////////////////////////////////////////////
-  // key pixel panning 
+  // key pixel panning: Arrows and space bar
   ////////////////////////////////////////////////////////////////////// 
   const step_by_key = 10; // pixels
+
   function moveMap([xDirection, yDirection]) {
     var center = map.getView().getCenter();
     var resolution = map.getView().getResolution();
     map.getView().setCenter([center[0] + xDirection * resolution, center[1] + yDirection * resolution]);
   }
 
-document.getElementById('map').addEventListener("keydown", (evt) => {
-  if(evt.altKey){
-    switch (evt.key) {
-      case "ArrowUp":
-      moveMap([0, step_by_key]);
-        break;
-      case "ArrowLeft":
-      moveMap([-step_by_key, 0]);
-        break;
-      case "ArrowRight":
-      moveMap([step_by_key, 0]);
-        break;
-      case "ArrowDown":
-      moveMap([0, -step_by_key]);
-        break;
-    
-      default:
-        break;
-    } 
-  }
+  document.getElementById('map').addEventListener("keydown", (evt) => {
+    if(evt.altKey){
+      switch (evt.key) {
+        case "ArrowUp":
+        moveMap([0, step_by_key]);
+          break;
+        case "ArrowLeft":
+        moveMap([-step_by_key, 0]);
+          break;
+        case "ArrowRight":
+        moveMap([step_by_key, 0]);
+          break;
+        case "ArrowDown":
+        moveMap([0, -step_by_key]);
+          break;
+      
+        default:
+          break;
+      } 
+    }
 
-  //console.log(evt);
-  //console.log(evt.keyCode);
-  if(evt.keyCode == 32 ){ //space or enter || evt.keyCode==13
-    event.preventDefault();
-    var radio = $('[name="edit-mode"]:checked').val();
+    if(evt.keyCode == 32 ){ // space (32). Not Enter as this blocks zoom buttons
+      event.preventDefault();
+      var radio = $('[name="edit-mode"]:checked').val();
 
-      if (radio == "draw-area" || radio == "select-area") {
-          selectCentre(evt)
-      }
-      if (radio == "delete-area") {
-        console.log('delete');
-        deleteCentre(evt);
-      }
-  }
+        if (radio == "draw-area" || radio == "select-area") {
+            selectCentre(evt)
+        }
+        if (radio == "delete-area") {
+          console.log('delete');
+          deleteCentre(evt);
+        }
+    }
 
-});
+  });
 
 </script>
 {% endblock %}
