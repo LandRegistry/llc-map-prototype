@@ -130,14 +130,15 @@ draw_layer_styles = {
     }),
     // HOVER
     5:  new ol.style.Style({
-            fill: new ol.style.Fill({
-              color: 'rgba(255,255,255,0.1)'
-            }),
-            stroke: new ol.style.Stroke({
-              color: '#4c2c92',//'#0b0c0c',
-              width: 2
-            })
-          }),
+      fill: new ol.style.Fill({
+        color: 'rgba(76,44,146,0.3)'//'rgba(255,255,255,0.1)'
+      }),
+      stroke: new ol.style.Stroke({
+        color: 'rgba(76,44,146,1)',//'#0b0c0c',
+        width: 2
+      }),
+      radius: 5
+    }),
     // New styles with HATCHING
     
     // DRAW | add (with HATCHING)
