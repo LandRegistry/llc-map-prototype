@@ -33,6 +33,7 @@
   }
 
   .nav-button:hover,
+  .zoom:hover,
   .nav-button:focus,
   .ol-fullscreen:focus {
     background-color: #b1b4b6;
@@ -88,4 +89,15 @@
   .down {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
+  }
+
+  #zoom-in {
+    position: absolute;
+    top: -560px;
+    left: 80px;
+  }
+  #zoom-out {
+    position: absolute;
+    top: -520px;
+    left: 80px;
   }

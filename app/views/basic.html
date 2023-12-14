@@ -17,9 +17,11 @@
   <div class="govuk-grid-column-three-quarters">
 
     <div style="position: relative; width: 0; height: 0">
-      <button id="fullscreen" class=" ol-fullscreen" type="button" title="Full screen"></button>
+      <button id="fullscreen" class="ol-fullscreen" type="button" title="Full screen"></button>
       <br />
       <div class="nav-controls ">
+        <button id="zoom-in" class="zoom ol-zoom-in" type="button" title="Zoom in"></button>
+        <button id="zoom-out" class="zoom ol-zoom-out" type="button" title="Zoom out"></button>
         <button id="pan-up" class="nav-button" data-module="govuk-button">
           <i class="arrow up"></i><span class="govuk-visually-hidden">Pan up</span>
         </button>
@@ -255,8 +257,8 @@
 <script>
   // Add map controls to get the zoom buttons as part of the ol overlay
   // controls are now GDS components
-  var controls = new MAP_CONTROLS.Controls([
-  ]);
+/*   var controls = new MAP_CONTROLS.Controls([
+  ]); */
 
   MAP_HELPERS.init_controls(map, controls);
 </script>
@@ -368,7 +370,7 @@
   function setMode(){
     var radio = $('[name="edit-mode"]:checked').val();
     map.removeInteraction(MAP_CONTROLS.hover_interaction);
-    
+
     if (radio == "draw-area") {
       map.removeInteraction(MAP_CONTROLS.current_interaction);
       MASTER_MAP_VECTOR_LAYER.enable()
