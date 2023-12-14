@@ -37,8 +37,10 @@ var MAP_HELPERS = {};
     // Ensures that tabbing order for controls is correct by defining the order in which controls are added to the map
     MAP_HELPERS.init_controls = function(map, controls) {
       // hide the default controls and replace with GDS buttons
-        map.addControl(controls);
-        map.addControl(new ol.control.Zoom());
+        if(controls){
+          map.addControl(controls);
+          map.addControl(new ol.control.Zoom());
+        }
         map.addControl(new ol.control.ScaleLine());
         map.addControl(new ol.control.Attribution({collapsed: false, collapsible: false}));
     };
