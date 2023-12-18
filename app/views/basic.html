@@ -5,9 +5,6 @@
 {% block beforeContent %}
 {% include "includes/phase-banner.html" %}
 {% include "includes/language-switcher-heading.html" %}
-<style>
-
-</style>
 {% endblock %}
 
 {% block content %}
@@ -20,18 +17,18 @@
       <button id="fullscreen" class="ol-fullscreen" type="button" title="Full screen"><span class="govuk-visually-hidden">Full screen</span></button>
       <br />
       <div class="nav-controls ">
-        <button id="zoom-in" class="zoom ol-zoom-in" type="button" title="Zoom in">+</button>
-        <button id="zoom-out" class="zoom ol-zoom-out" type="button" title="Zoom out">-</button>
-        <button id="pan-up" class="nav-button" data-module="govuk-button">
+        <button id="zoom-in" class="zoom ol-zoom-in zoom-in" type="button" title="Zoom in">+</button>
+        <button id="zoom-out" class="zoom ol-zoom-out zoom-out" type="button" title="Zoom out">-</button>
+        <button id="pan-up" class="nav-button pan-up" data-module="govuk-button">
           <i class="arrow up"></i><span class="govuk-visually-hidden">Pan up</span>
         </button>
-        <button id="pan-left" class="nav-button" data-module="govuk-button">
+        <button id="pan-left" class="nav-button pan-left" data-module="govuk-button">
           <i class="arrow left"></i><span class="govuk-visually-hidden">Pan left</span>
         </button>
-        <button id="pan-right" class="nav-button" data-module="govuk-button">
+        <button id="pan-right" class="nav-button pan-right" data-module="govuk-button">
           <i class="arrow right"></i><span class="govuk-visually-hidden">Pan right</span>
         </button>
-        <button id="pan-down" class="nav-button" data-module="govuk-button">
+        <button id="pan-down" class="nav-button pan-down" data-module="govuk-button">
           <i class="arrow down"></i><span class="govuk-visually-hidden">Pan down</span>
         </button>
       </div>

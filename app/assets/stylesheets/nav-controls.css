@@ -41,24 +41,24 @@
     background-clip: padding-box;
   }
 
-  #pan-up {
+  .pan-up {
     position: absolute;
     left: 40px;
   }
 
-  #pan-left {
+  .pan-left {
     position: absolute;
     top: 40px;
     left: 0px;
   }
 
-  #pan-right {
+  .pan-right {
     position: absolute;
     top: 40px;
     left: 80px;
   }
 
-  #pan-down {
+  .pan-down {
     position: absolute;
     top: 80px;
     left: 40px;
@@ -91,12 +91,12 @@
     -webkit-transform: rotate(45deg);
   }
 
-  #zoom-in {
+  .zoom-in {
     position: absolute;
     top: -560px;
     left: 80px;
   }
-  #zoom-out {
+  .zoom-out {
     position: absolute;
     top: -520px;
     left: 80px;
