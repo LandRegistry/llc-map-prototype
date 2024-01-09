@@ -595,7 +595,8 @@
   }
 
   document.getElementById('map').addEventListener("keydown", (evt) => {
-    if(evt.altKey){
+    evt.stopPropagation();
+    if(evt.altKey || evt.shiftKey){
       switch (evt.key) {
         case "ArrowUp":
         moveMap([0, step_by_key]);
