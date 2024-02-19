@@ -20,29 +20,30 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">
-      Edit the search area interactive map 
+      Interactive map: Edit the search area 
     </h1>
     <p class="govuk-body-l">The search service is a public facing service that allows users to 
-      search an geographical area for local land charges.</p>
+      search a geographical area for local land charges.</p>
 
 
     <h2 class="govuk-heading-l">
       The Issue
     </h2>
-    <p>The existing interactive map had a number of accessibility issues that prevented users from completing a search. The map required mouse or touch interaction in order to define a search area. There was a contrast issue with the overlay and non-standard buttons were used as part of the user interface.</p>
+    <p>The existing interactive map had a number of accessibility issues that prevented users from completing a search. The map required mouse or touch interaction in order to define a search area, there was a contrast issue with the map overlay, and non-standard buttons were used as part of the user interface.</p>
     <p>Additionally, it was concluded from data analytics that users where drawing areas by hand and very few people were using the built-in functionality to identify their search area.</p>
 
 
     <h2 class="govuk-heading-l">
       What we changed
     </h2>
-    <p>We reviewed the complete page and it's place in the user journey. A key part was refining the content on the page. We removed explanatory text that was covered earlier in the journey, and worked through the controls to provide clearer labels. We also tested a version with short hint text.</p>
-    <p>We replaced the existing map controls with GDS components. This standardised the appearance of the page and more importantly, it ensured any future accessibility improvements are automatically received. We grouped the controls based on their function and re-ordered them to make the built-in selection the default. The main element was four exclusive user states to select, draw, edit or delete areas.</p>
+    <p>We reviewed the complete page and it's place in the user journey. A key part was refining the content on the page. to simplify the page, we removed explanatory text that was covered earlier in the journey, and renamed the controls to provide clearer labels. We also tested a version with short hint text.</p>
+    <p>One of the key requirements was to only use the existing functionality (and not investigate alternatives). We replaced the existing openlayers map controls with GDS components. This standardised the appearance of the page and more importantly, it ensured any future accessibility improvements are automatically received. We grouped the controls based on their function and re-ordered them to make the built-in selection the default. The main element was four exclusive user states to select, draw, edit or delete areas.</p>
     <p>The controls also included an option to snap to a feature of the map. (Snapping is a drawing aid that controls the accuracy of the pointer when you hover near a corner, an endpoint, or other geometric element).</p>
     <p>The remaining functions (to undo an action or clear the complete map) remained as simple buttons.</p>
-    <p>We also added an option to toggle between a colour shading and hatched pattern so as not rely colour alone to indicate the state of the map, although the radio buttons now indicate this. </p>
+    <p>We also added an option to toggle between a colour shading and hatched pattern in order to not rely colour alone to show the state of the map, although the new changes meant that the radio buttons now indicate this. </p>
     <p>In order to enable use of the map via the keyboard alone, a new button was added to the UI to select the area in the centre of the map. Panning and zooming of the map using the keyboard was already built-in using the openlayer js library. We added to this by using custom code to fine tune the positioning of the map. This enabled the user to pan shorter amounts by also using the shift key. The space bar was also used to add or delete the area in the centre of the map. </p>
-    <p>The final change we made was to add a visual cue to the map on mouse over when a user was selecting an area.</p>
+    <p>After user testing including accessibility testing with keyboard-only users, we remove the "select centre" button as well as the buttons to pan the map, but left the keyboard functionality to move the map and select the location in the centre of the map.</p>
+    <p>The final change was to add a visual cue to the map on mouse over. This indicated each predefined area when a user was selecting an area.</p>
     
     <img class="govuk-!-width-full" src="/public/images/map-existing.png" alt="">
     <figcaption class="govuk-body-s">Existing map tool</figcaption>
