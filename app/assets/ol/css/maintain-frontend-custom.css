@@ -1,32 +1,32 @@
 /* OpenLayers Scale Line Override */
 .ol-scale-line {
-    background: rgba(255, 255, 255, .8) !important;
-    border-radius: 5px !important;
-    padding: 2px !important;
-    position: absolute !important;
+  background: rgba(255, 255, 255, .8) !important;
+  border-radius: 5px !important;
+  padding: 2px !important;
+  position: absolute !important;
 }
 
 .ol-scale-line-inner {
-    color: #000 !important;
-    border: 1px solid #000 !important;
-    border-top: none !important;
+  color: #000 !important;
+  border: 1px solid #000 !important;
+  border-top: none !important;
 }
 
 /* Remove the bottom padding on the full screen map pages to give as much space as possible. */
 .full-screen-map-main {
-    padding-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 /* Container for the full screen map and sidebar. */
 #full-screen-map-container {
-    position: relative;
+  position: relative;
 }
 
 .full-screen-map {
-    width: calc(100% - 2vw);
-    height: calc(94vh - 116px);
-    float: right;
-    position: relative;
+  width: calc(100% - 2vw);
+  height: calc(94vh - 116px);
+  float: right;
+  position: relative;
 }
 
 #draw-controls button,
@@ -35,208 +35,208 @@
 #snap-to button:focus,
 .ol-control.ol-zoom button,
 .ol-control.ol-zoom button:focus {
-    display: inline;
-    height: 40px;
-    width: 40px;
-    padding: 0px;
-    /* border: 3px solid rgba(0, 0, 0, 0); */
-    /* border-radius: 7px; */
-    background-color: #ffffff;
-    outline: none;
-    margin: 0px;
-    background-clip: padding-box;
+  display: inline;
+  height: 40px;
+  width: 40px;
+  padding: 0px;
+  /* border: 3px solid rgba(0, 0, 0, 0); */
+  /* border-radius: 7px; */
+  background-color: #ffffff;
+  outline: none;
+  margin: 0px;
+  background-clip: padding-box;
 }
 
 .ol-control.ol-zoom button:hover{
-    background-color: #b1b4b6;
-    outline: none;
-    margin: 0px;
-    background-clip: padding-box;
+  background-color: #b1b4b6;
+  outline: none;
+  margin: 0px;
+  background-clip: padding-box;
 }
 
 @media screen and (min-width: 600px){
-    .map-button-point,
-    .map-button-line,
-    .map-button-edit,
-    .map-button-add-area,
-    .map-button-edit,
-    .map-button-delete,
-    .map-button-undo,
-    .map-button-copy,
-    .map-button-clear-all,
-    .map-button-draw-hole{
-        background: none;
-    }
+  .map-button-point,
+  .map-button-line,
+  .map-button-edit,
+  .map-button-add-area,
+  .map-button-edit,
+  .map-button-delete,
+  .map-button-undo,
+  .map-button-copy,
+  .map-button-clear-all,
+  .map-button-draw-hole{
+      background: none;
+  }
 
-    .control-title, 
-    .undo-img {
-        display: unset;
-    }
+  .control-title, 
+  .undo-img {
+      display: unset;
+  }
 
-    .control-title {
-        font-size: 0.65em;
-        display: inline;
-        color:rgb(255, 255, 255);
-    }
+  .control-title {
+      font-size: 0.65em;
+      display: inline;
+      color:rgb(255, 255, 255);
+  }
 
-    button#map-button-clear-all.map-button-clear-all,
-    button#map-button-delete.map-button-delete {
-        width: 2.7em;
-        line-height: 0.7em;
-    }
+  button#map-button-clear-all.map-button-clear-all,
+  button#map-button-delete.map-button-delete {
+      width: 2.7em;
+      line-height: 0.7em;
+  }
 
-    button#map-button-undo.map-button-undo{
-        width: 2.5em;
-    }
+  button#map-button-undo.map-button-undo{
+      width: 2.5em;
+  }
 
-    #draw-controls button,
-    #draw-controls button:focus,
-    #snap-to button,
-    #snap-to button:focus,
-    .ol-control.ol-zoom button,
-    .ol-control.ol-zoom button:focus {
-        display: inline;
-        height: 40px;
-       /*  padding-right: 0.25em;
-        padding-left: 0.25em; */
-        /* border-radius: 7px; */
-        background-color: #ffffff;
-        outline: none;
-        margin: 0px;
-        background-clip: padding-box;
-        vertical-align: bottom;
-    }
+  #draw-controls button,
+  #draw-controls button:focus,
+  #snap-to button,
+  #snap-to button:focus,
+  .ol-control.ol-zoom button,
+  .ol-control.ol-zoom button:focus {
+      display: inline;
+      height: 40px;
+     /*  padding-right: 0.25em;
+      padding-left: 0.25em; */
+      /* border-radius: 7px; */
+      background-color: #ffffff;
+      outline: none;
+      margin: 0px;
+      background-clip: padding-box;
+      vertical-align: bottom;
+  }
 
-    button#map-button-point.map-button-point,
-    button#map-button-line.map-button-line,
-    button#map-button-edit.map-button-edit,
-    button#map-button-add-area.map-button-add-area,
-    button#map-button-edit.map-button-edit,
-    button#map-button-copy.map-button-copy,
-    button#map-button-circle.map-button-circle,
-    button#map-button-draw-hole.map-button-draw-hole{
-        width: auto;
-    }
+  button#map-button-point.map-button-point,
+  button#map-button-line.map-button-line,
+  button#map-button-edit.map-button-edit,
+  button#map-button-add-area.map-button-add-area,
+  button#map-button-edit.map-button-edit,
+  button#map-button-copy.map-button-copy,
+  button#map-button-circle.map-button-circle,
+  button#map-button-draw-hole.map-button-draw-hole{
+      width: auto;
+  }
 }
 
 #draw-controls {
-    position: absolute;
-    top: 2%;
-    right: 30%;
-    background-color: rgba(255, 255, 255, 0.9);
-   /*  border-radius: 0.4em; */
+  position: absolute;
+  top: 2%;
+  right: 30%;
+  background-color: rgba(255, 255, 255, 0.9);
+ /*  border-radius: 0.4em; */
 }
 
 .ol-control.ol-zoom button{
-    display: block;
-    height: 40px;
-    width: 40px;
-    color:#ffffff;
-    padding:0;
-  }
-  
+  display: block;
+  height: 40px;
+  width: 40px;
+  color:#ffffff;
+  padding:0;
+}
+
 .ol-control.ol-zoom,
 .ol-control.ol-zoom:hover {
-    background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .ol-viewport .ol-zoom {
-    top: 2%;
-    right: 2%;
-    left: auto;
+  top: 2%;
+  right: 2%;
+  left: auto;
 }
 
 .maintain-llc-map,
 .maintain-llc-map .ol-viewport {
-    min-height: 630px;
+  min-height: 630px;
 }
 
 .ol-attribution {
-    left: auto !important;
-    right: 1vw !important;
-    bottom: 1vw !important;
-    height: auto !important;
-    max-width: 70vw !important;
-    border-radius: 4px !important;
-    text-align: left !important;
+  left: auto !important;
+  right: 1vw !important;
+  bottom: 1vw !important;
+  height: auto !important;
+  max-width: 70vw !important;
+  border-radius: 4px !important;
+  text-align: left !important;
 }
 
 .ol-attribution.ol-unselectable.ol-control.ol-uncollapsible{
-    padding-top: 1%;
+  padding-top: 1%;
 }
 
 /*  cross hairs  */
 .center {
-  position: absolute;
-  top: 330px;
-  left: calc(37.5% - 28px); /* half of the 75% column width */
-  width: 56px;
-  height: 56px;
-  /* no circle in this version */
-  /* border-radius: 50%;
-  border: 2px solid #000; */
-  pointer-events: none;
-  z-index: 2;
+position: absolute;
+top: 330px;
+left: calc(37.5% - 28px); /* half of the 75% column width */
+width: 56px;
+height: 56px;
+/* no circle in this version */
+/* border-radius: 50%;
+border: 2px solid #000; */
+pointer-events: none;
+z-index: 2;
 }
 
 .horizontal,
 .vertical {
-  content: '';
-  position: absolute;
-  width: 70px;
-  height: 1px;
-  background-color: #000;
-  border-radius: 0;
-  top: 28px;
-  z-index: 0;
+content: '';
+position: absolute;
+width: 70px;
+height: 1px;
+background-color: #000;
+border-radius: 0;
+top: 28px;
+z-index: 0;
 }
 
 .horizontal {
-  left: -6px;
+left: -6px;
 }
 
 .vertical {
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-  left: -7px;
+-webkit-transform: rotate(-90deg);
+-moz-transform: rotate(-90deg);
+transform: rotate(-90deg);
+left: -7px;
 }
 
 
 /* Customise the ol zoom controls */
 .ol-zoom-in {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Crect width='14' height='2' x='8' y='14' style='fill:%230b0c0c'/%3E%3Crect width='2' height='14' x='14' y='8' style='fill:%230b0c0c'/%3E%3C/svg%3E");
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Crect width='14' height='2' x='8' y='14' style='fill:%230b0c0c'/%3E%3Crect width='2' height='14' x='14' y='8' style='fill:%230b0c0c'/%3E%3C/svg%3E");
 }
 
 .ol-zoom-out {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Crect width='14' height='2' x='8' y='14' style='fill:%230b0c0c'/%3E%3C/svg%3E");
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Crect width='14' height='2' x='8' y='14' style='fill:%230b0c0c'/%3E%3C/svg%3E");
 }
 
 .ol-zoom {
-  display: block;
-  float: right;
-  clear: right;
-  width: 40px;
-  height: auto;
-  margin-top: 5px;
+display: block;
+float: right;
+clear: right;
+width: 40px;
+height: auto;
+margin-top: 5px;
 }
 
 .ol-fullscreen {
-  position: absolute;
-  float: left;
-  clear: right;
-  top: 14px;
-  left: 14px;
-  height: 40px;
-  width: 40px;
-  margin-top: 5px;
-  border: none;
-  z-index:10;
-  outline: none;
-  background: no-repeat center url("/public/ol/images/fullscreen.svg");
-  background-color: #fff;
-  background-size: 36px 36px;
-  cursor: pointer;
+position: absolute;
+float: left;
+clear: right;
+top: 14px;
+left: 14px;
+height: 40px;
+width: 40px;
+margin-top: 5px;
+border: none;
+z-index:10;
+outline: none;
+background: no-repeat center url("/public/ol/images/fullscreen.svg");
+background-color: #fff;
+background-size: 36px 36px;
+cursor: pointer;
 }
 
 .ol-fullscreen:hover {
@@ -245,32 +245,45 @@ outline: none;
 background-clip: padding-box;
 }
 
+.ol-fullscreen:focus{
+box-shadow: 0 0 0 2px #fff, inset 0 0 0 0 #0b0c0c, 0 0 0 5px #0b0c0c, 0 0 0 8px #ffdd00;
+outline: 3px solid #000000;
+z-index:99;
+}
+
 .ol-zoom-in,
 .ol-zoom-out {
-  display: block;
-  border: 0;
-  height: 40px;
-  width: 40px;
-  padding: 0;
-  cursor: pointer;
-  background-color: #fff;
-  background-size: 30px;
-  background-position: 5px 5px;
-  overflow: hidden;
-  text-indent: -5000px;
+display: block;
+border: 0;
+height: 40px;
+width: 40px;
+padding: 0;
+cursor: pointer;
+background-color: #fff;
+background-size: 30px;
+background-position: 5px 5px;
+overflow: hidden;
+text-indent: -5000px;
+}
+
+.ol-zoom-in:focus,
+.ol-zoom-out:focus {
+box-shadow: 0 0 0 2px #fff, inset 0 0 0 0 #0b0c0c, 0 0 0 5px #0b0c0c, 0 0 0 8px #ffdd00;
+outline: 3px solid #000000;
+z-index:99;
 }
 /* hide the controls as the JS checks for their state */
 #draw-controls {
-  visibility: hidden;
+visibility: hidden;
 }
 .map-key-image{
-  position: relative;
-  top:3px;
+position: relative;
+top:3px;
 }
 .govuk-heading-s{
-  margin-bottom: 10px;
+margin-bottom: 10px;
 }
 .ol-scale-line-inner{
-  color: #0b0c0c;
-  font-family: "GDS Transport", arial, sans-serif;
+color: #0b0c0c;
+font-family: "GDS Transport", arial, sans-serif;
 }
