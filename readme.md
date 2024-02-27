@@ -1,8 +1,10 @@
 # Local Land Charges Map Prototype
 ## October 2023
 
-This repo is an stand alone example of an editable [openlayers](https://openlayers.org/) map within the GDS prototype kit
+This repo is an stand alone example of an editable [openlayers](https://openlayers.org/) map within the GDS prototype kit.
+The original version was refined to improve accessibility, including adding keyboard navigation to add and remove pre-defined areas on the map.
 
+The map is currently deployed on [Heroku](https://llc-map-prototype-db7fa4c7098c.herokuapp.com/).  
 
 ## Running this app
 
@@ -20,7 +22,7 @@ This repo is a copy of GOV.UK Prototype Kit version 13
 
 ## Notes
 
-As well as using open layers javascript library, this prototype uses [environmental variables](https://nodejs.dev/en/learn/how-to-read-environment-variables-from-nodejs/) to configure some of the map. 
+As well as using open layers javascript library, this prototype uses [environmental variables](https://nodejs.dev/en/learn/how-to-read-environment-variables-from-nodejs/) to configure the map tiles and also . 
 
 A `.env` file will need to be created for these variables:
 ```
