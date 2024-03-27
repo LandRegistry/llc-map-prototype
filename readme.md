@@ -1,12 +1,12 @@
 # Local Land Charges Map Prototype
 ## October 2023
 
-This repo is an stand alone example of an editable [openlayers](https://openlayers.org/) map within the GDS prototype kit.
+This repo is a stand alone example of an editable [OpenLayers](https://openlayers.org/) map within the GDS prototype kit.
 The original version was refined to improve accessibility, including adding keyboard navigation to add and remove pre-defined areas on the map.
 
 The map is currently deployed on [Heroku](https://llc-map-prototype-db7fa4c7098c.herokuapp.com/).
 
-From a technical point of view, Openlayers default keys are used for panning and zooming. Additional code was use to fine-tune the panning in order to be able to reduce the number of pixels the map is moved. Code is also use to find the centre cordinates of the map, and these are used to determine the feature at that point (The features are from the MasterMap Web Feature Service). The geometry of that feature is then used as the selected area. 
+From a technical point of view, OpenLayers default keys are used for panning and zooming. Additional code was use to fine-tune the panning in order to be able to reduce the number of pixels the map is moved. Code is also use to find the centre cordinates of the map, and these are used to determine the feature at that point (The features are from the MasterMap Web Feature Service). The geometry of that feature is then used as the selected area. 
 
 ## Running this app
 
