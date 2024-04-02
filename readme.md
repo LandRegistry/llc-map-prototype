@@ -16,15 +16,16 @@ This repo is a copy of GOV.UK Prototype Kit version 13
 
 
 - node 18 is needed
-- run 'npm init' to install node modules
-- use 'npm run dev' NOT 'npm start' to run the kit locally
+- run `npm init` to install node modules
+- use `npm run dev` NOT `npm start` to run the kit locally
 - template / layout locations in the app have changed
 
 
 
 ## Notes
 
-As well as using open layers javascript library, this prototype uses [environmental variables](https://nodejs.dev/en/learn/how-to-read-environment-variables-from-nodejs/) to configure the map tiles and also . 
+
+For this repo, as part of the open layers javascript library, this prototype uses [environmental variables](https://nodejs.dev/en/learn/how-to-read-environment-variables-from-nodejs/) to configure the map tiles and the vector layers used to define the property boundaries. 
 
 A `.env` file will need to be created for these variables:
 ```
@@ -32,6 +33,8 @@ MASTERMAP_API_KEY
 WFS_URL
 WMTS_URL
 ```
+
+A simplified repo, containing a working example using open source data, is [available here](https://github.com/mcoulthurst/map-keyboard). The javascript from this open source version has been re-used in this prototype (compiled as `assets/javascripts/openlayers.js`).
 
 
 ## About the Prototype Kit
