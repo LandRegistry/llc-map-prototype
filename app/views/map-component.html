@@ -5,12 +5,18 @@
 {% set pageName="Search" %}
 
 {% block beforeContent %}
+<style>
+  figure {
+    margin: 0px;
+  }
+</style>
+
 {% include "includes/phase-banner.html" %}
 
 {{ govukBreadcrumbs({
     items: [
       {
-        text: "LLC prototypes",
+        text: "Home",
         href: "/"
       }
     ]
@@ -25,8 +31,7 @@
       Map component
     </h1>
 
-    <p class="govuk-body-l">Search for local land charges is a public facing service that allows users to 
-      search an area for local land charges.</p>
+    <p class="govuk-body-l">This page shows a locally installed map component. More details can be found in this <a href="https://github.com/mcoulthurst/hmlr-simple-map" target="_blank">github repo</a>.</p>
 
     {{ hmlrSimpleMap({
       alt: "Demo geojson from INSPIRE",
