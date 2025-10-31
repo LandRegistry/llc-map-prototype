@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+
+{% from "hmlrSimpleMap.njk" import hmlrSimpleMap %}
+
+{% set pageName="Search" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+
+{{ govukBreadcrumbs({
+    items: [
+      {
+        text: "LLC prototypes",
+        href: "/"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      Map component
+    </h1>
+
+    <p class="govuk-body-l">Search for local land charges is a public facing service that allows users to 
+      search an area for local land charges.</p>
+
+    {{ hmlrSimpleMap({
+      alt: "Demo geojson from INSPIRE",
+      caption: "Example 5 Overlapping boundary: Note RGBA format of fill 00703c99, 00703c + 99 alpha (99/FF % transparency)",
+
+      path_to_geometry: "/public/demo.json",
+
+      height: "800px",
+      style: {
+        fill: {
+          color: "#d4351c22"
+        },
+        stroke: {
+          color: "#d4351c",
+          width: 3,
+          lineDash: [4, 4]
+        }
+      }
+    }) }}
+
+
+
+  </div>
+</div>
+
+{% endblock %}
