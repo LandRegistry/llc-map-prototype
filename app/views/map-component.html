@@ -2,59 +2,250 @@
 
 {% from "hmlrSimpleMap.njk" import hmlrSimpleMap %}
 
-{% set pageName="Search" %}
-
-{% block beforeContent %}
-<style>
-  figure {
-    margin: 0px;
-  }
-</style>
-
-{% include "includes/phase-banner.html" %}
-
-{{ govukBreadcrumbs({
-    items: [
-      {
-        text: "Home",
-        href: "/"
-      }
-    ]
-  }) }}
+{% block pageTitle %}
+Map Component – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
+
+{% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }}
+{% endblock %}
+
 
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">
-      Map component
-    </h1>
+    <h1 class="govuk-heading-xl">Map Component Test</h1>
 
-    <p class="govuk-body-l">This page shows a locally installed map component. More details can be found in this <a href="https://github.com/mcoulthurst/hmlr-simple-map" target="_blank">github repo</a>.</p>
+
+    {{ hmlrSimpleMap({
+      alt: "Map of Plymouth",
+      caption: "Example 1 map component default view"
+    }) }}
+
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+    {{ hmlrSimpleMap({
+      alt: "Map of Cornwall, showing a field north of Liskeard",
+      caption: "Example 2, custom size, custom coordinates and zoom",
+      coords: "225000, 65000",
+      zoom: 15,
+      height: "400px",
+      width: "620px"
+    }) }}
+
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+    {{ hmlrSimpleMap({
+      alt: "Map of Cornwall, showing a field north of Liskeard",
+      caption: "Example 3, loading external geojson",
+      layers:[
+      {
+        path_to_geometry: "/public/data/boundary.json"
+      }]
+    }) }}
+
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+    {{ hmlrSimpleMap({
+      alt: "Map of Cornwall, showing a field north of Liskeard",
+      caption: "Example 4, loading external geojson with built-in styling, custom view (centre and zoom)",
+      coords: "225000, 65000",
+      zoom: 15,
+      layers:[
+        {
+          path_to_geometry: "/public/data/boundary.json",
+          style: {
+            fill: {
+              color: "#d4351c33"
+            },
+            stroke: {
+              color: "#d4351c",
+              width: 2,
+              lineDash: [4, 4]
+            }
+          }
+        }
+      ]
+    }) }}
+
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+    <!--  see https://www.jmiron.com/percent-to-hex-converter for hex/percentage convertor -->
+    {{ hmlrSimpleMap({
+      alt: "Demo geojson from INSPIRE",
+      caption: "Example 5 Multiple features, cusotm styling: Note RGBA format of fill 00703c99, 00703c + 99 alpha (99/FF so 153/255 = 60% transparency)",
+      layers:[
+        {
+          path_to_geometry: "/public/data/demo.json",
+          style: {
+            fill: {
+              color: "#d5388033"
+            },
+            stroke: {
+              color: "#d53880",
+              width: 1,
+              lineDash: [10, 4]
+            }
+          }
+        }
+      ]
+    }) }}
 
     {{ hmlrSimpleMap({
       alt: "Demo geojson from INSPIRE",
-      caption: "Example 5 Overlapping boundary: Note RGBA format of fill 00703c99, 00703c + 99 alpha (99/FF % transparency)",
-
-      path_to_geometry: "/public/demo.json",
-
+      caption: "Example 6 Overlapping boundary: custom OpenLayers style",
       height: "800px",
-      style: {
-        fill: {
-          color: "#d4351c22"
-        },
-        stroke: {
-          color: "#d4351c",
-          width: 3,
-          lineDash: [4, 4]
+      layers:[
+        {
+          path_to_geometry: "/public/data/overlap_boundary.geojson",
+          style: {
+            fill: {
+              color: "#4c2c9244"
+            },
+            stroke: {
+              color: "#4c2c92",
+              width: 10,
+              lineDash: [1, 20]
+            }
+          }
         }
-      }
+      ]
     }) }}
+
+
+    {{ hmlrSimpleMap({
+      alt: "Demo geojson from INSPIRE",
+      caption: "Example of hidden geometry with interactivity to dispatch click event",
+      zoom: 15.5,
+      layers:[
+        {
+          path_to_geometry: "/public/data/liskeard_overlaps.geojson",
+          style: "hidden",
+          interactive: "true"
+        }
+      ]
+        
+    }) }}
+
+    <p class="govuk-body" id="map_notes">Click the map to see information about a title<br/>&nbsp;</p>
+
+
+    {{ hmlrSimpleMap({
+      alt: "Demo geojson from INSPIRE",
+      caption: "Example of layered boundaries with controls and custom map tiles",
+      layerControls: "true",
+      layers:[
+        {
+          path_to_geometry: "/public/data/liskeard_overlaps.geojson",
+          interactive: "true",
+          style: {
+            fill: {
+              color: "#4c2c9222"
+            },
+            stroke: {
+              color: "#4c2c9211",
+              width: 0.5
+            }
+          }
+        },
+        {
+          path_to_geometry: "/public/data/layer1.geojson",
+          interactive: "true",
+          style: {
+            fill: {
+              color: "#d4351c01"
+            },
+            stroke: {
+              color: "#d4351c",
+              width: 2
+            }
+          }
+        },
+        {
+          path_to_geometry: "/public/data/layer2.geojson",
+          interactive: "true",
+          style: {
+            fill: {
+              color: "#00703c11"
+            },
+            stroke: {
+              color: "#00703c",
+              width: 2
+            }
+          }
+        },
+        {
+          path_to_geometry: "/public/data/layer3.geojson",
+          interactive: "true",
+          style: "BLUE"
+        }
+      ],
+      zoom: 14.5,
+      tile_url: 'https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'
+    }) }}
+
+
+
+
 
 
 
   </div>
 </div>
+
+<script>
+
+  var names = {};
+  names[40902075] = "Field adjacent to Menheniot Railway Bridge, Station Road, Menheniot, Cornwall PL14 3RG";
+  names[61650471] = "Land rear of St. Martin's Church, Church Lane, Liskeard, Cornwall PL14 4EF";
+  names[41018856] = "Grazing field south of Doublebois Village Hall, Doublebois, Cornwall PL14 6HJ";
+  names[15061225] = "Vacant plot opposite Liskeard Community Hospital, Clemo Road, Liskeard, Cornwall PL14 3QS";
+  names[15062864] = "Agricultural land adjacent to Moorswater Industrial Estate, Liskeard, Cornwall PL14 4EL";
+  names[15068131] = "Paddock behind terraced cottages, Pengover Road, Liskeard, Cornwall PL14 4HN";
+  names[15068053] = "Scrubland north of Caradon Hill transmission mast, St. Cleer, Cornwall PL14 5DA";
+  names[57831470] = "Meadow bounded by West Looe River, Coldrenick, St. Keyne, Cornwall PL14 4RY";
+  names[15062718] = "Orchard land adjacent to Tremar Coombe, St. Cleer Road, Liskeard, Cornwall PL14 6RU";
+  names[53485444] = "Former miners' cottages site, Herodsfoot Common, Herodsfoot, Cornwall PL14 4QW";
+  names[52799872] = "Pasture field east of Duloe Stone Circle, Duloe, Cornwall PL14 4PP";
+  names[52796451] = "Vacant ground behind Liskeard Cattle Market, Pig Street, Liskeard, Cornwall PL14 3JE";
+  names[52775568] = "Rough grazing on Bodmin Moor boundary, Minions, Cornwall PL14 5LE";
+  names[54696254] = "Smallholding adjacent to Liskeard & Looe Union Canal, Moorswater, Cornwall PL14 4EH";
+  names[15065839] = "Building plot opposite Trevalga Farm, Trevalga Lane, St. Keyne, Cornwall PL14 4SA";
+  names[15068101] = "Moorland strip south of Cheesewring Quarry access road, Minions, Cornwall PL14 5LF";
+  names[60808505] = "Garden land behind Rose Cottage, Penlaurel Lane, Quethiock, Cornwall PL14 3RB";
+  names[15068528] = "Waste ground adjoining Liskeard Railway Station car park, Station Road, Liskeard, Cornwall PL14 4BQ";
+  names[15069921] = "Hillside pasture above Golitha Falls, Draynes Bridge, St. Neot, Cornwall PL14 6ND";
+  names[15070116] = "Derelict barn site, Trekeivesteps Farm access, Darite, Cornwall PL14 5HG";
+  names[15069958] = "Copse woodland east of Siblyback Lake, Commonmoor, Cornwall PL14 6HU";
+  names[15069669] = "Former chapel grounds, Pendrift Road, Trewidland, Cornwall PL14 3PE";
+  names[15069207] = "Sloping field north of Trethevy Quoit monument, Trethevy, Cornwall PL14 3QE";
+  names[15068131] = "Allotment strip behind Millpool Head, Looe Mills, Cornwall PL14 4QA";
+  names[15064943] = "Bracken land adjoining Carnglaze Caverns entrance, St. Neot, Cornwall PL14 6HQ";
+  names[15064943] = "Building plot near Warleggan Village Green, Warleggan, Cornwall PL30 4FA";
+  names[15068053] = "Meadow bounded by River Fowey, Golant Road, St. Winnow, Cornwall PL14 3NX";
+  names[43768145] = "Rough ground adjacent to Hurlers Stone Circles car park, Minions, Cornwall PL14 5HD";
+
+
+  
+  document.addEventListener("DOMContentLoaded", (event) => {
+    console.log('page loaded');
+
+    // add custom listener for map event: hmlrMapClickEvent
+    document.addEventListener('hmlrMapClickEvent', (event) => {
+      const message = event.detail.message;
+      console.log('Message:', message);
+
+      const id = message.values_.INSPIREID;
+      let address = names[id];
+      if(address === undefined){
+        address = "No property of measurable worth" +"<br/>&nbsp;";
+      }
+      document.getElementById("map_notes").innerHTML = "INSPIRE ID " + id +": " + address ;
+    });
+
+  })
+</script>
 
 {% endblock %}
