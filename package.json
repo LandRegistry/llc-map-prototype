@@ -8,6 +8,6 @@
     "@govuk-prototype-kit/common-templates": "2.0.1",
     "govuk-frontend": "5.2.0",
     "govuk-prototype-kit": "13.16.0",
-    "hmlr-simple-map": "file:hmlr-simple-map-1.0.0.tgz"
+    "hmlr-map": "^0.1.1"
   }
 }

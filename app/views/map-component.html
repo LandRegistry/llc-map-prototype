@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% from "hmlrSimpleMap.njk" import hmlrSimpleMap %}
+{% from "hmlrMap.njk" import hmlrMap %}
 
 {% block pageTitle %}
 Map Component – {{ serviceName }} – GOV.UK Prototype Kit
@@ -19,14 +19,14 @@ Map Component – {{ serviceName }} – GOV.UK Prototype Kit
     <h1 class="govuk-heading-xl">Map Component Test</h1>
 
 
-    {{ hmlrSimpleMap({
+    {{ hmlrMap({
       alt: "Map of Plymouth",
       caption: "Example 1 map component default view"
     }) }}
 
     <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
-    {{ hmlrSimpleMap({
+    {{ hmlrMap({
       alt: "Map of Cornwall, showing a field north of Liskeard",
       caption: "Example 2, custom size, custom coordinates and zoom",
       coords: "225000, 65000",
@@ -37,7 +37,7 @@ Map Component – {{ serviceName }} – GOV.UK Prototype Kit
 
     <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
-    {{ hmlrSimpleMap({
+    {{ hmlrMap({
       alt: "Map of Cornwall, showing a field north of Liskeard",
       caption: "Example 3, loading external geojson",
       layers:[
@@ -48,7 +48,7 @@ Map Component – {{ serviceName }} – GOV.UK Prototype Kit
 
     <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
-    {{ hmlrSimpleMap({
+    {{ hmlrMap({
       alt: "Map of Cornwall, showing a field north of Liskeard",
       caption: "Example 4, loading external geojson with built-in styling, custom view (centre and zoom)",
       coords: "225000, 65000",
@@ -73,7 +73,7 @@ Map Component – {{ serviceName }} – GOV.UK Prototype Kit
     <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
     <!--  see https://www.jmiron.com/percent-to-hex-converter for hex/percentage convertor -->
-    {{ hmlrSimpleMap({
+    {{ hmlrMap({
       alt: "Demo geojson from INSPIRE",
       caption: "Example 5 Multiple features, custom styling: Note RGBA format of fill d5388033, d53880 + 33 alpha (33/FF so 51/255 = 20% transparency)",
       layers:[
@@ -93,29 +93,25 @@ Map Component – {{ serviceName }} – GOV.UK Prototype Kit
       ]
     }) }}
 
-    {{ hmlrSimpleMap({
+
+
+    {{ hmlrMap({
       alt: "Demo geojson from INSPIRE",
-      caption: "Example 6 Overlapping boundary: custom OpenLayers style",
-      height: "800px",
+      caption: "Example showing the selection of a single feature from a collection using the geometry_index property",
       layers:[
         {
-          path_to_geometry: "/public/data/overlap_boundary.geojson",
-          style: {
-            fill: {
-              color: "#4c2c9244"
-            },
-            stroke: {
-              color: "#4c2c92",
-              width: 10,
-              lineDash: [1, 20]
-            }
-          }
+          path_to_geometry: "/public/data/liskeard_overlaps.geojson",
+          geometry_index: 5,
+          style: "BLUE"
         }
-      ]
+      ],
+      width: "100%",
+      height: "390px"
     }) }}
 
 
-    {{ hmlrSimpleMap({
+
+    {{ hmlrMap({
       alt: "Demo geojson from INSPIRE",
       caption: "Example of hidden geometry with interactivity to dispatch click event",
       zoom: 15.5,
@@ -132,13 +128,14 @@ Map Component – {{ serviceName }} – GOV.UK Prototype Kit
     <p class="govuk-body" id="map_notes">Click the map to see information about a title<br/>&nbsp;</p>
 
 
-    {{ hmlrSimpleMap({
+{{ hmlrMap({
       alt: "Demo geojson from INSPIRE",
       caption: "Example of layered boundaries with controls and custom map tiles",
-      layerControls: "true",
+      layer_controls: "true",
       layers:[
         {
           path_to_geometry: "/public/data/liskeard_overlaps.geojson",
+          description:"INSPIRE data",
           interactive: "true",
           style: {
             fill: {
@@ -165,6 +162,7 @@ Map Component – {{ serviceName }} – GOV.UK Prototype Kit
         },
         {
           path_to_geometry: "/public/data/layer2.geojson",
+          description:"Custom description",
           interactive: "true",
           style: {
             fill: {
@@ -178,7 +176,7 @@ Map Component – {{ serviceName }} – GOV.UK Prototype Kit
         },
         {
           path_to_geometry: "/public/data/layer3.geojson",
-          interactive: "true",
+          description:"Blue boundary",
           style: "BLUE"
         }
       ],
@@ -186,6 +184,21 @@ Map Component – {{ serviceName }} – GOV.UK Prototype Kit
       tile_url: 'https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'
     }) }}
 
+
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+    {{ hmlrMap({
+      alt: "Demo geojson from INSPIRE",
+      caption: "Example of hatched canvas shading of layers",
+      layers:[
+        {
+          path_to_geometry: "/public/data/layer1.geojson",
+          interactive: "true",
+          style: "green HATCHED"
+        }
+       
+      ]
+    }) }}
 
 
 
