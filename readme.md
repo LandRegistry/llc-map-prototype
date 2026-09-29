@@ -8,6 +8,8 @@ The map is currently deployed on [Heroku](https://llc-map-prototype-db7fa4c7098c
 
 From a technical point of view, OpenLayers default keys are used for panning and zooming. Additional code was use to fine-tune the panning in order to be able to reduce the number of pixels the map is moved. Code is also use to find the centre cordinates of the map, and these are used to determine the feature at that point (The features are from the MasterMap Web Feature Service). The geometry of that feature is then used as the selected area. 
 
+For more information contact [DesignOps@landregistry.gov.uk](mailto:DesignOps@landregistry.gov.uk) or view the HMLR [repo for the map component](https://github.com/LandRegistry/hmlr-simple-map).
+
 ## Running this app
 
 This repo is a copy of GOV.UK Prototype Kit version 13
